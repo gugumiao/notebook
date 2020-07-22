@@ -24,15 +24,15 @@ def find_unique_price_using_set(product):
 
 
 # 计算列表版本的时间
-start_using_list = time.perf_counter()
+start = time.perf_counter()
 find_unique_price_using_list(products)
-end_using_list = time.perf_counter()
-print("time elapse using list: {}".format(end_using_list - start_using_list))
+end = time.perf_counter()
+print(f'time elapse using list: {end-start}')
 
 
 # 计算集合版本的时间
-start_using_set = time.perf_counter()
+start = time.perf_counter()
 find_unique_price_using_set(products)
-end_using_set = time.perf_counter()
-print("time elapse using set: {}".format(end_using_set - start_using_set))
+end = time.perf_counter()
+print(f'time elapse using set: {end-start}')
 
