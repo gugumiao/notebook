@@ -2,6 +2,7 @@
 # encoding: utf-8
 # https://leetcode-cn.com/problems/move-zeroes
 from time_counter import time_counter
+import random
 
 
 class Solution(object):
@@ -12,7 +13,12 @@ class Solution(object):
     """
     @time_counter
     def moveZeroes(self, nums):
-        pass
+        i = 0
+        for j in range(len(nums)):
+            if nums[j] != 0:
+                nums[i], nums[j] = nums[j], nums[i]
+                i += 1
+        #print(nums)
 
 
     @time_counter
@@ -20,12 +26,15 @@ class Solution(object):
         for i in range(len(nums)-1, -1, -1):
             if nums[i] == 0:
                 nums.append(nums.pop(i))
-        print(nums)
+        #print(nums)
 
 
 if __name__ == '__main__':
-    test = [0, 1, 0, 3, 12]
+    count = [100*10**i for i in range(6)]
     s = Solution()
-    s.moveZeroes(test)
-    s.moveZeroes2(test)
+    for i in count:
+        test = [random.randint(0, 9) for _ in range(i)]
+        print(f'测试用例长度: {format(len(test), ",")}')
+        s.moveZeroes(test)
+        s.moveZeroes2(test)
 

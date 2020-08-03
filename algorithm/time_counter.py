@@ -6,9 +6,9 @@ import time
 
 def time_counter(func):
     def wrapper(*args, **kwargs):
-        start = time.perf_counter_ns()
+        start = time.process_time_ns()
         func(*args, **kwargs)
-        end = time.perf_counter_ns()
-        print(f'{func.__name__} 耗时: {end-start}ns')
+        end = time.process_time_ns()
+        print(f'{func.__name__} 耗时: {format((end-start), ",")} ns')
     return wrapper
 
