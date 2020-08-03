@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
-# https://leetcode-cn.com/problems/move-zeroes
+# https://leetcode.com/problems/move-zeroes
+
 from time_counter import time_counter
 import random
 
