@@ -4,7 +4,7 @@
 
 from tests import int_list_dup
 from time_counter import time_counter
-
+from copy import deepcopy
 
 class Solution(object):
 
@@ -19,7 +19,6 @@ class Solution(object):
             if nums[j] != 0:
                 nums[i], nums[j] = nums[j], nums[i]
                 i += 1
-        #print(nums)
 
 
     @time_counter
@@ -27,15 +26,16 @@ class Solution(object):
         for i in range(len(nums)-1, -1, -1):
             if nums[i] == 0:
                 nums.append(nums.pop(i))
-        #print(nums)
 
 
 if __name__ == '__main__':
-    max_range = 9
+    max_range = 8
     s = Solution()
     for i in range(max_range):
-        test = int_list_dup(i, dup=10)
-        print(f'测试用例长度: {format(len(test), ",")}')
-        s.moveZeroes(test)
-        s.moveZeroes2(test)
+        print(f'测试用例长度: {format(10**i, ",")}')
+        test = int_list_dup(i, dup=1000000)
+        test1 = deepcopy(test)
+        test2 = deepcopy(test)
+        s.moveZeroes(test1)
+        s.moveZeroes2(test2)
 
