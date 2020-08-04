@@ -6,12 +6,13 @@
 import random
 
 
-def int_list_dup(max_range, dup=4):
+def int_list_dup(max_range, dup):
     r = 10 ** max_range
+    dup = min(r//10, dup) if r > 1 else 1
     return [random.randint(-r//dup, r//dup) for _ in range(r)]
 
 
-def int_list_dup_sorted(max_range, dup=4):
+def int_list_dup_sorted(max_range, dup):
     return list(map(sorted, int_list_dup(max_range, dup)))
 
 

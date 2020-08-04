@@ -29,11 +29,12 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    max_range = 8
+    max_range = int(input('max_range 测试数组长度位数(1-9 9=亿): '))
+    dup = int(input('dup 数组重复度(min(len(array)//10, dup)): '))
     s = Solution()
     for i in range(max_range):
         print(f'测试用例长度: {format(10**i, ",")}')
-        test = int_list_dup(i, dup=1000000)
+        test = int_list_dup(i, dup)
         test1 = deepcopy(test)
         test2 = deepcopy(test)
         s.moveZeroes(test1)
