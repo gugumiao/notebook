@@ -2,8 +2,8 @@
 # encoding: utf-8
 # https://leetcode.com/problems/move-zeroes
 
+from tests import int_list_dup
 from time_counter import time_counter
-import random
 
 
 class Solution(object):
@@ -31,10 +31,10 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    count = [100*10**i for i in range(6)]
+    max_range = 9
     s = Solution()
-    for i in count:
-        test = [random.randint(0, 9) for _ in range(i)]
+    for i in range(max_range):
+        test = int_list_dup(i, dup=10)
         print(f'测试用例长度: {format(len(test), ",")}')
         s.moveZeroes(test)
         s.moveZeroes2(test)
