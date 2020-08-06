@@ -5,7 +5,8 @@
 
 
 from time_counter import time_counter
-import random
+from tests import int_list_dup_sorted
+from copy import deepcopy
 
 
 @time_counter
@@ -27,11 +28,13 @@ def solution2(nums):
 
 
 if __name__ == '__main__':
-    count = [1*10**i for i in range(9)]
-    for i in count:
-        test = [random.randint(0, 10) for _ in range(i)]
-        test.sort()
-        print(f'测试用例长度: {format(len(test), ",")}')
-        solution1(test)
-        solution2(test)
+    test = int_list_dup_sorted(3, 10)
+    test1 = deepcopy(test)
+    test2 = deepcopy(test)
+    print(test1)
+    print(solution1(test1))
+    print(test1)
+    print(test2)
+    print(solution2(test2))
+    print(test2)
 

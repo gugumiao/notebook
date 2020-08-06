@@ -4,7 +4,7 @@
 
 from typing import List
 from time_counter import time_counter
-import random
+from tests import int_list_dup
 
 
 @time_counter
@@ -25,7 +25,7 @@ def maxArea(height: List[int]) -> int:
 
 
 if __name__ == '__main__':
-    test = [random.randint(1, 10) for _ in range(10)]
-    print(test)
-    print(maxArea(test))
+    height = [abs(i) for i in int_list_dup(1)]
+    print(height)
+    print(maxArea(height))
 
