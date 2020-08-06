@@ -6,23 +6,17 @@
 import random
 
 
-def int_list_dup(max_range, dup):
+def int_list_dup(max_range, dup=1, is_sort=False):
     r = 10 ** max_range
     dup = min(r//10, dup) if r > 1 else 1
-    return [random.randint(-r//dup, r//dup) for _ in range(r)]
+    l = [random.randint(-r//dup, r//dup) for _ in range(r)]
+    return sorted(l) if is_sort else l
 
 
-def int_list_dup_sorted(max_range, dup):
-    return list(map(sorted, int_list_dup(max_range, dup)))
-
-
-def int_list_dedup(max_range):
+def int_list_dedup(max_range, is_sort=False):
     r = 10 ** max_range
-    return random.sample(range(-r, r), r)
-
-
-def int_list_dedup_sorted(max_range):
-    return list(map(sorted, int_list_dedup(max_range)))
+    l = random.sample(range(-r, r), r)
+    return sorted(l) if is_sort else l
 
 
 if __name__ == '__main__':
